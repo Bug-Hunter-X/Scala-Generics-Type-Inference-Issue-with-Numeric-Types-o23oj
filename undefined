@@ -1,0 +1,26 @@
+```scala
+class MyClass[T](val value: T) {
+  def printValue(): Unit = {
+    println(value)
+  }
+}
+
+object MainObject {
+  def main(args: Array[String]): Unit = {
+    val myInt = new MyClass(10)
+    myInt.printValue()
+
+    val myString = new MyClass("Hello")
+    myString.printValue()
+
+    val myList = new MyClass(List(1, 2, 3))
+    myList.printValue()
+
+    // Solution: Explicitly specify the type
+    val myDouble = new MyClass[Double](10.5)
+    myDouble.printValue()
+  }
+}
+```
+
+To resolve the issue, explicitly specify the type parameter `T` during instantiation.  In this case, it would be `new MyClass[Double](10.5)`. This removes ambiguity for the compiler.
